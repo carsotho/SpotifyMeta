@@ -24,4 +24,9 @@ class SpotifyMeta
 		track = Net::HTTP.get(self.url, '/search/1/track.json?q='+track.gsub(' ', '%20')+'&page='+page.to_s)
 		JSON.parse(track)
 	end
+
+	def lookup(spotifyUri, extras=nil)
+		lookup = Net::HTTP.get(self.url, '/lookup/1/.json?uri='+spotifyUri+'&extras='+extras)
+		JSON.parse(lookup)
+	end
 end

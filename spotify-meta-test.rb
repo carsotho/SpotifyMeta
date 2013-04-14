@@ -84,4 +84,12 @@ class TestSpotifyMeta < Test::Unit::TestCase
 
 		assert_equal(result["tracks"][0]["name"], "Clint Eastwood", "fail")
 	end
+
+	def test_lookup
+		spotifyMeta = SpotifyMeta.new
+		result = spotifyMeta.lookup("spotify:artist:1tpXaFf2F55E7kVJON4j4G", "album")
+
+		assert_equal(result["artist"]["href"], "spotify:artist:1tpXaFf2F55E7kVJON4j4G", "fail")
+		assert_equal(result["artist"]["albums"][0]["album"]["artist-id"], "spotify:artist:1tpXaFf2F55E7kVJON4j4G", "fail")
+	end
 end
