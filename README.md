@@ -1,0 +1,1 @@
+Simple implementaion of the Spotify Meta API
